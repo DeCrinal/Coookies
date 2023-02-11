@@ -29,6 +29,7 @@ public:
     QPushButton *pushButton_4;
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
+    QPushButton *pushButton_0;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,6 +44,10 @@ public:
         pushButton_1 = new QPushButton(centralwidget);
         pushButton_1->setObjectName(QString::fromUtf8("pushButton_1"));
         pushButton_1->setGeometry(QRect(80, 10, 140, 45));
+
+        pushButton_0 = new QPushButton(centralwidget);
+        pushButton_0->setObjectName("pushButton_0");
+        pushButton_0->setGeometry(270,10, 20,20);
 
         pushButton_2 = new QPushButton(centralwidget);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
@@ -63,6 +68,7 @@ public:
         pushButton_6 = new QPushButton(centralwidget);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
         pushButton_6->setGeometry(QRect(80,260,140,45));
+
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
