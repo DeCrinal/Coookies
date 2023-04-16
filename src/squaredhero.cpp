@@ -1,7 +1,7 @@
 #include "squaredhero.h"
 #include<QObject>
 #include<QCoreApplication>
-#include"SquaredScene.h"
+#include"../gui/SquaredScene.h"
 #include<QMessageBox>
 #include<QThread>
 

@@ -1,7 +1,8 @@
-#include "mainwindow.h"
+#include "../gui/mainwindow.h"
 #include<iostream>
 #include<fstream>
 #include <QApplication>
+#include <QTranslator>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

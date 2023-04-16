@@ -13,18 +13,25 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    sqwindow.h
-    SquaredScene.h
-    squaredhero.h
-    squaredhero.cpp
-    SquaredScene.cpp
-    SqWindow.cpp
-    ui_sqwindow.h
-    ui_sqwindow_1.h
-    ui_mainwindow.h
+    src/main.cpp
+    gui/mainwindow.cpp
+    gui/mainwindow.h
+    gui/sqwindow.h
+    gui/SquaredScene.h
+    src/squaredhero.h
+    src/squaredhero.cpp
+    gui/SquaredScene.cpp
+    gui/SqWindow.cpp
+    gui/ui_sqwindow.h
+    gui/ui_sqwindow_1.h
+    gui/ui_mainwindow.h
+    gui/settingwindow.h
+    gui/settingwindow.cpp
+    src/programmsettings.cpp
+    src/programmsettings.h
+    gui/ui_settingwindow.h
+    gui/mainwindow.ui
+    gui/sqwindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "sqwindow.h"
+#include "../gui/sqwindow.h"
 #include <iostream>
 #include <fstream>
 #include<QMessageBox>

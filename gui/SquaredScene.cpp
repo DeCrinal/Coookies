@@ -1,5 +1,5 @@
 #include"SquaredScene.h"
-#include"sqwindow.h"
+#include"../gui/sqwindow.h"
 #include<QGraphicsItem>
 #include<QtCore>
 #include<ctime>

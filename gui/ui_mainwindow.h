@@ -73,7 +73,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 300, 22));
+        menubar->setGeometry(QRect(10, 10, 300, 22));
 
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);

@@ -1,7 +1,7 @@
 #ifndef SQUAREDSCENE_H
 #define SQUAREDSCENE_H
 #include<QGraphicsScene>
-#include"squaredhero.h"
+#include"../src/squaredhero.h"
 #include<QTimer>
 #include<iostream>
 #include <fstream>
