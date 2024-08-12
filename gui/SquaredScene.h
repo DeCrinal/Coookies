@@ -20,7 +20,7 @@ public:
     vector<vector<int>>boards;
     SquaredHero*squaredHero;
     SqScene(QObject*parent=nullptr);
-    void setVector(std::string vector_from);
+    void setVector(const QString& vector_from);
     ~SqScene();
     void get_level_data(int choosed_lvl);
 };

@@ -20,21 +20,21 @@ void MainWindow::clickHandler(int lvl){
     int lvlAvailable;
     in.open("progress.txt");
     if(in.is_open()){
-        in>>lvlAvailable;
+        in >> lvlAvailable;
     }
     in.close();
     out.open("variables.txt");
     if(out.is_open()){
-        out<<lvl;
+        out << lvl;
     }
     out.close();
     if(lvlAvailable < lvl){
-        QMessageBox::information(0,"Message","This level is not available yet :(");
+        QMessageBox::information(0, "Message","This level is not available yet :(");
         return;
     }
     delete sqWindow;
     sqWindow = new SqWindow();
-    connect(sqWindow,&SqWindow::firstWindow,this,&MainWindow::showClear);
+    connect(sqWindow, &SqWindow::firstWindow, this, &MainWindow::showClear);
     sqWindow->show();
     this->close();
 }

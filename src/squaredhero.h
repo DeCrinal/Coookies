@@ -18,14 +18,14 @@ class SquaredHero: public QObject, public QGraphicsItem{
 public:
     SquaredHero(QObject*parent = nullptr);
     ~SquaredHero();
-    void setVector(std::string vector_from);
+    void setVector(const QString &vector_from);
     void change_root();
 protected slots:
     virtual void GameTimer();
 signals:
     void collisionHere(QGraphicsItem*item);
 protected:
-    std::string vector;
+    QString vector;
     double velocity;
     double deltaX, deltaY;
     QTimer*gameTimer;

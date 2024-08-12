@@ -36,34 +36,34 @@ void SquaredHero::paint(QPainter*painter, const QStyleOptionGraphicsItem
 }
 
 void SquaredHero::GameTimer(){
-   if(vector=="left"){
+   if(vector == QLatin1String("left")){
        this->setX(this->x()-velocity);
-       deltaX-=velocity;
+       deltaX -= velocity;
    }
-   if(vector=="right"){
+   if(vector == QLatin1String("right")){
        this->setX(this->x() + velocity);
-       deltaX+=velocity;
+       deltaX += velocity;
    }
-   if(vector=="top"){
+   if(vector == QLatin1String("top")){
        this->setY(this->y() - velocity);
-       deltaY-=velocity;
+       deltaY -= velocity;
    }
-   if(vector=="bot"){
+   if(vector == QLatin1String("bot")){
        this->setY(this->y() + velocity);
-       deltaY+=velocity;
+       deltaY += velocity;
    }
-   if(scene()->collidingItems(this).isEmpty()==false && not_root){
+   if(scene()->collidingItems(this).isEmpty() == false && not_root){
             QList<QGraphicsItem*>collidingOnes = scene()->collidingItems(this);
-            for(auto it = collidingOnes.begin();it!=collidingOnes.end();it++){
+            for(auto it = collidingOnes.begin(); it!=collidingOnes.end(); it++){
                emit collisionHere(*it);
             }
             if(!coin_was_deleted&&!finish_was_reached){
-                this->setY(this->y()-deltaY);
-                this->setX(this->x()-deltaX);
+                this->setY(this->y() - deltaY);
+                this->setX(this->x() - deltaX);
                 //QThread::msleep(80);
-                deltaX=0;
-                deltaY=0;
-                vector = "right";
+                deltaX = 0;
+                deltaY = 0;
+                vector = QLatin1String("right");
             }
             if(finish_was_reached){
                int levelCompleted,levelAvailable;
@@ -77,7 +77,7 @@ void SquaredHero::GameTimer(){
                if(levelCompleted>=levelAvailable){
                    std::ofstream of;
                    of.open("progress.txt");
-                   of<<levelCompleted+1;
+                   of<<levelCompleted + 1;
                }
                QMessageBox::information(0,"Message","You Win!");
                        deltaY=0;
@@ -86,7 +86,7 @@ void SquaredHero::GameTimer(){
    }
 }
 
-void SquaredHero::setVector(std::string vector_from){
+void SquaredHero::setVector(const QString &vector_from){
     vector = vector_from;
 }
 
@@ -96,28 +96,36 @@ void SquaredHero::change_root()
 }
 
 void SquaredEnemy::GameTimer(){
-   if(vector=="left"){
-       this->setX(this->x()-velocity);
-       deltaX-=velocity;
+   if(vector == QLatin1String("left")){
+       this->setX(this->x() - velocity);
+       deltaX -= velocity;
    }
-   if(vector=="right"){
+   if(vector == QLatin1String("right")){
        this->setX(this->x() + velocity);
-       deltaX+=velocity;
+       deltaX += velocity;
    }
-   if(vector=="top"){
+   if(vector == QLatin1String("top")){
        this->setY(this->y() - velocity);
        deltaY-=velocity;
    }
-   if(vector=="bot"){
+   if(vector == QLatin1String("bot")){
        this->setY(this->y() + velocity);
        deltaY+=velocity;
    }
-   if((abs(deltaY-finalY)<=0.00001&&abs(deltaX-finalX)<=0.00001) ||
-           (abs(deltaY)<=0.00001&&abs(deltaX)<=0.00001)){
-       if(vector=="left")vector="right";
-       else if(vector=="right")vector = "left";
-       else if(vector=="top")vector="bot";
-       else vector="top";
+   if((abs(deltaY-finalY) <= 0.00001 && abs(deltaX-finalX) <= 0.00001) ||
+           (abs(deltaY) <= 0.00001 && abs(deltaX) <= 0.00001)){
+       if(vector == QLatin1String("left")){
+           vector = QLatin1String("right");
+       }
+       else if(vector == QLatin1String("right")){
+           vector = QLatin1String("left");
+       }
+       else if(vector == QLatin1String("top")){
+           vector = QLatin1String("bot");
+       }
+       else{
+           vector = QLatin1String("top");
+       }
    }
 }
 void SquaredEnemy::setFinalXYChange(const double &x=100, const double &y=100){
@@ -126,25 +134,25 @@ void SquaredEnemy::setFinalXYChange(const double &x=100, const double &y=100){
 }
 
 void SquaredEnemy::setVelocity(const double &speed){
-    velocity=speed;
+    velocity = speed;
 }
 
 void SquaredEnemy::paint(QPainter*painter, const QStyleOptionGraphicsItem
                         *option, QWidget*widget){
-    painter->setBrush(QColor(169,238,230));
-    painter->drawRect(-10,-10,20,20);
+    painter->setBrush(QColor(169, 238, 230));
+    painter->drawRect(-10, -10, 20, 20);
 }
 void CircleCoin::paint(QPainter*painter, const QStyleOptionGraphicsItem
                         *option, QWidget*widget){
-    painter->setBrush(QColor(255,215,0));
-    painter->setRenderHint(QPainter::Antialiasing,true);
-    painter->drawEllipse(-10,-10,20,20);
+    painter->setBrush(QColor(255, 215, 0));
+    painter->setRenderHint(QPainter::Antialiasing, true);
+    painter->drawEllipse(-10, -10, 20, 20);
 }
 
 void FinishPoint::paint(QPainter *painter, const QStyleOptionGraphicsItem
                         *option, QWidget *widget)
 {
-   painter->setBrush(QColor(49,0,98));
+   painter->setBrush(QColor(49, 0, 98));
    painter->setPen(Qt::black);
-   painter->drawRect(-10,-10,20,20);
+   painter->drawRect(-10, -10, 20, 20);
 }
